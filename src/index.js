@@ -8,6 +8,8 @@ import './index.css'
 // TODO: README.md says we shouldn't need to modify this, but I needed react-dom-router
 // Ask for alternatives
 
+// TODO: Rename file extensions to .js instead of .jsx
+
 ReactDOM.render(
   <BrowserRouter><App /></BrowserRouter>,
   document.getElementById('root')
