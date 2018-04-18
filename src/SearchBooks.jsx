@@ -1,18 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import BookGrid from './BookGrid'
+import * as BooksAPI from './BooksAPI'
 
 class SearchBooks extends Component{
+  state = {
+    query: '',
+    books:[]
+  }
+
+  updateQuery = (query) => {
+    this.setState({ query: query.trim() })
+
+    if(this.state.query){
+      BooksAPI.search(this.state.query).then((books) => {
+        this.setState({ books })
+      })
+    }else{
+      books:[]
+    }
+  }
+
   render(){
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <Link to='/' className='close-search'>Close</Link>          
+          <Link to='/' className='close-search'>Close</Link>
           <div className="search-books-input-wrapper">
-            <input type="text" placeholder="Search by title or author"/>
+            <input
+              type="text"
+              placeholder="Search by title or author"
+              onChange={(event) => this.updateQuery(event.target.value)}
+            />
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid"></ol>
+          <BookGrid books={this.state.books} />
         </div>
       </div>
     )
