@@ -17,7 +17,7 @@ class SearchBooks extends Component{
         this.setState({ books })
       })
     }else{
-      books:[]
+      this.setState({books:[]})
     }
   }
 

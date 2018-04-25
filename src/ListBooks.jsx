@@ -27,9 +27,23 @@ class ListBooks extends  Component{
         </div>
         <div className="list-books-content">
           <div>
-            <BookShelf title="Currently Reading" books={currentlyReading}/>
-            <BookShelf title="Want to Read" books={wantToRead}/>
-            <BookShelf title="Read" books={read}/>            
+            <BookShelf
+              title="Currently Reading"
+              books={currentlyReading}
+              onUpdateBook={this.props.onUpdateBook}
+              />
+
+            <BookShelf
+              title="Want to Read"
+              books={wantToRead}
+              onUpdateBook={this.props.onUpdateBook}
+              />
+
+            <BookShelf
+              title="Read"
+              books={read}
+              onUpdateBook={this.props.onUpdateBook}
+              />
           </div>
         </div>
         <div className="open-search">
