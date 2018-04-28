@@ -38,6 +38,7 @@ class SearchBooks extends Component{
         </div>
         <div className="search-books-results">
           <BookGrid
+            userBooks={this.props.books}
             books={this.state.books}
             onUpdateBook={this.props.onUpdateBook}
             />
