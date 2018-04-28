@@ -10,7 +10,7 @@ class ListBooks extends  Component{
 
     let currentlyReading = books.filter((book)=>book.shelf==='currentlyReading')
     let wantToRead = books.filter((book)=>book.shelf==='wantToRead')
-    let read = books.filter((book) => book.shelf ==='read')
+    let read = books.filter((book) => book.shelf ==='read')    
 
     return (
       <div className="list-books">

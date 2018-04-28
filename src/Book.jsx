@@ -4,6 +4,7 @@ class Book extends Component {
 
   updateBookStatus = (e) => {
     let {book} = this.props
+    book.shelf=e.target.value
     this.props.onUpdateBook(book,e.target.value)
   }
 

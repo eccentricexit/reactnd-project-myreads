@@ -10,20 +10,17 @@ class BooksApp extends React.Component {
       books: []
   }
 
-  updateBookShelf(book,shelf){
-    BooksAPI.update(book,shelf)
-    .then((response) => {
+  updateBookShelf(book,shelf){    
+
+    BooksAPI.update(book,shelf).then((response) => {
       let {books} = this.state
       let _book = books.filter((b) => b.id===book.id)[0]
       if(_book){
-        console.log('setting shelf')
         _book.shelf = shelf
       }else{
-        console.log('concatenating')
         books = books.concat([book])
       }
 
-      console.info('books: ',books)
       this.setState({books})
     })
   }
@@ -35,7 +32,8 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    let {books} = this.state    
+    let {books} = this.state
+
     return (
       <div className="app">
         <Route exact path='/' render={() => (
