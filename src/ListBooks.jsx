@@ -4,18 +4,10 @@ import BookShelf from './BookShelf'
 import * as BooksAPI from './BooksAPI'
 
 class ListBooks extends  Component{
-  state = {
-    books:[]
-  }
-
-  componentDidMount(){
-    BooksAPI.getAll().then((books) => {
-      this.setState({books})
-    })
-  }
 
   render() {
-    const {books} = this.state
+    const {books} = this.props
+
     let currentlyReading = books.filter((book)=>book.shelf==='currentlyReading')
     let wantToRead = books.filter((book)=>book.shelf==='wantToRead')
     let read = books.filter((book) => book.shelf ==='read')
