@@ -6,11 +6,16 @@ class BookGrid extends Component{
     const { books } = this.props
     return (
       <ol className="books-grid">
-        {books.map((book) => (
-          <li key={book.id}>
-            <Book book={book} onUpdateBook={this.props.onUpdateBook}/>
-          </li>
-        ))}
+        {books.length>0 &&
+          (
+            books.map((book) => (
+              <li key={book.id}>
+                <Book book={book} onUpdateBook={this.props.onUpdateBook}/>
+              </li>)
+            )
+          )
+        }
+
       </ol>
     )
   }
