@@ -1,18 +1,18 @@
 import React, {Component} from 'react'
 import Book from './Book'
 
-class BookGrid extends Component{
-  render(){
-    const { books,userBooks } = this.props
+class BookGrid extends Component {
+  render () {
+    const { books, userBooks } = this.props
     return (
-      <ol className="books-grid">
-        {books.length>0 && (
+      <ol className='books-grid'>
+        {books.length > 0 && (
             books.map((book) => {
               let userBook
-              if(userBooks){
-                userBook = userBooks.filter(b => b.id===book.id)[0]
+              if (userBooks) {
+                userBook = userBooks.filter(b => b.id === book.id)[0]
               }
-              if(userBook){
+              if (userBook) {
                 book = userBook
               }
 
@@ -23,8 +23,8 @@ class BookGrid extends Component{
                     onUpdateBook={this.props.onUpdateBook}
                     />
                 </li>
-                )
-              }
+              )
+            }
             )
           )
         }
