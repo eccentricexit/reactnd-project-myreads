@@ -4,11 +4,13 @@ import BookShelf from './BookShelf'
 
 class ListBooks extends Component {
   render () {
-    const {books} = this.props
+    const {books} = this.props    
 
-    let currentlyReading = books.filter((book) => book.shelf === 'currentlyReading')
-    let wantToRead = books.filter((book) => book.shelf === 'wantToRead')
-    let read = books.filter((book) => book.shelf === 'read')
+    const shelves = {
+        currentlyReading: ['Currently Reading', 'currentlyReading'],
+        wantToRead: ['Want to Read', 'wantToRead'],
+        read: ['Read', 'read']
+      }
 
     return (
       <div className='list-books'>
@@ -16,24 +18,13 @@ class ListBooks extends Component {
           <h1>MyReads</h1>
         </div>
         <div className='list-books-content'>
-          <div>
-            <BookShelf
-              title='Currently Reading'
-              books={currentlyReading}
-              onUpdateBook={this.props.onUpdateBook}
-              />
-
-            <BookShelf
-              title='Want to Read'
-              books={wantToRead}
-              onUpdateBook={this.props.onUpdateBook}
-              />
-
-            <BookShelf
-              title='Read'
-              books={read}
-              onUpdateBook={this.props.onUpdateBook}
-              />
+        { Object.keys(shelves).map((shelf) =>
+          <BookShelf key={shelf}
+            title={shelves[shelf][0]}
+            books={books.filter((book) => book.shelf === shelves[shelf][1])}
+            onUpdateBook={this.props.onUpdateBook}
+          />
+        )}
           </div>
         </div>
         <div className='open-search'>
