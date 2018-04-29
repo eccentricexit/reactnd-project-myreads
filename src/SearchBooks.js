@@ -12,7 +12,7 @@ class SearchBooks extends Component{
   updateQuery = (query) => {
     if(query){
       BooksAPI.search(query.trim()).then((books) => {
-        if(books.constructor === Array){
+        if(books.error === undefined){
           this.setState({books:books,query:query.trim()})
         }else{
           this.setState({books:[],query:query.trim()})
