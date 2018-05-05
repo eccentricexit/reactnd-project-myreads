@@ -4,7 +4,7 @@ import BookShelf from './BookShelf'
 
 class ListBooks extends Component {
   render () {
-    const {books} = this.props    
+    const {books} = this.props
 
     const shelves = {
         currentlyReading: ['Currently Reading', 'currentlyReading'],
@@ -25,7 +25,6 @@ class ListBooks extends Component {
             onUpdateBook={this.props.onUpdateBook}
           />
         )}
-          </div>
         </div>
         <div className='open-search'>
           <Link to='/search'>Add a book</Link>
