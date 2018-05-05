@@ -6,3 +6,8 @@
 
 1. `npm install`
 2. `npm start`
+
+## Screenshots
+
+![main](screenshots/main.png)
+![search](screenshots/search.png)
